@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подтверждение кода</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff; /* Белый фон */
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .header h1 {
+            font-size: 18px;
+            font-weight: normal;
+            color: #333;
+            margin: 0;
+            text-align: right; /* Ориентация текста к правой стороне */
+        }
+        .container {
+            width: 448px;
+            height: 208px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center; /* Центрирование содержимого */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .input-field {
+            font-size: 16px;
+            color: #555;
+            width: 100%;
+        }
+        input[type="text"] {
+            width: 384px;
+            height: 48px;
+            padding: 8px;
+            font-size: 16px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .error-message {
+            color: red;
+            display: none;
+            margin-bottom: 10px;
+        }
+        .button {
+            width: 384px;
+            height: 40px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 20px; /* Центрирование текста по вертикали */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="uzbekistan_emblem5.png" alt="Герб Узбекистана">
+        <h1>Министерство здравоохранения Республики Узбекистан</h1>
+    </div>
+    <div class="container">
+        <div class="input-field">
+            <p>Код подтверждения</p>
+            <input type="text" id="codeInput" placeholder="Введите код">
+        </div>
+        <p id="errorMessage" class="error-message">Неверный код</p>
+        <button id="confirmButton" class="button" onclick="checkCode()">Подтвердить</button>
+    </div>
+
+    <script>
+        function checkCode() {
+            const codeInput = document.getElementById('codeInput').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const correctCode1 = '7969';
+            const correctCode2 = '7229';
+            const pdfUrl1 = 'documentMD.pdf'; // Укажите путь к первому PDF-документу
+            const pdfUrl2 = 'documentNY.pdf'; // Укажите путь ко второму PDF-документу
+
+            if (codeInput === correctCode1) {
+                errorMessage.style.display = 'none';
+                window.open(pdfUrl1, '_blank'); // Открыть первый PDF в новой вкладке
+            } else if (codeInput === correctCode2) {
+                errorMessage.style.display = 'none';
+                window.open(pdfUrl2, '_blank'); // Открыть второй PDF в новой вкладке
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
